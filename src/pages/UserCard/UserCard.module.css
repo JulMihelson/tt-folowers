@@ -1,0 +1,44 @@
+.userCard {
+  position: relative;
+  color: rgba(235, 216, 255, 1);
+  font-family: inherit;
+
+  font-size: 20px;
+  width: 380px;
+  height: 460px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    114.99deg,
+    #471ca9 -0.99%,
+    #5736a3 54.28%,
+    #4b2a99 78.99%
+  );
+  gap: 20px;
+}
+.followBtn {
+  font-family: inherit;
+  font-weight: 600;
+  color: rgba(55, 55, 55, 1);
+  font-size: 18px;
+  padding: 14px 28px 14px 28px;
+  border-radius: 10.31px;
+  gap: 6px;
+  width: 196px;
+  box-shadow: 0px 3.44px 3.44px 0px rgba(0, 0, 0, 0.25);
+}
+.logo {
+  fill: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.bubbles {
+  position: absolute;
+  top: 28px;
+  left: 36px;
+}
