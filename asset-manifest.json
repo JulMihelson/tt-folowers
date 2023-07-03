@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tt-folowers/static/css/main.7acaea2f.css",
+    "main.js": "/tt-folowers/static/js/main.07d3183d.js",
+    "index.html": "/tt-folowers/index.html",
+    "main.7acaea2f.css.map": "/tt-folowers/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/tt-folowers/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
