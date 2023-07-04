@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/tt-folowers/static/css/main.7acaea2f.css",
-    "main.js": "/tt-folowers/static/js/main.07d3183d.js",
+    "main.css": "/tt-folowers/static/css/main.3695826d.css",
+    "main.js": "/tt-folowers/static/js/main.61c849ba.js",
+    "static/media/dialogbubbles.png": "/tt-folowers/static/media/dialogbubbles.b186e544641a66e17d83.png",
     "index.html": "/tt-folowers/index.html",
-    "main.7acaea2f.css.map": "/tt-folowers/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/tt-folowers/static/js/main.07d3183d.js.map"
+    "main.3695826d.css.map": "/tt-folowers/static/css/main.3695826d.css.map",
+    "main.61c849ba.js.map": "/tt-folowers/static/js/main.61c849ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.3695826d.css",
+    "static/js/main.61c849ba.js"
   ]
 }
