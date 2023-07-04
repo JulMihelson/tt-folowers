@@ -3,30 +3,23 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers } from 'redux/operations';
 import { UserCard } from 'pages/UserCard/UserCard';
 import css from './UserList.module.css';
+import { selectUsers } from 'redux/selector';
+
 export const UserList = () => {
   const dispatch = useDispatch();
-  const users = useSelector(state => state.users.data);
-  const isLoading = useSelector(state => state.users.isLoading);
-  const error = useSelector(state => state.users.error);
+  const users = useSelector(selectUsers);
+  console.log(users);
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
   return (
-    <div>
+    <div className={css.list}>
       <h1>User List</h1>
       <ul>
         {users.map(user => (
-          <UserCard key={user.id} />
+          <UserCard key={user.id} {...user} />
         ))}
       </ul>
     </div>

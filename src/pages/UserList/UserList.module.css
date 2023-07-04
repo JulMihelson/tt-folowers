@@ -1,3 +1,9 @@
 ul {
-  list-style: none;
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+p {
+  margin: 0;
 }

@@ -1,2 +1,2 @@
-export const selectUsers = state => state.users.items;
+export const selectUsers = state => state.users.data;
 export const selectIsLoading = state => state.users.isLoading;

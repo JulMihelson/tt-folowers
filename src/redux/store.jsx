@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import usersReducer, { fetchUsers } from './usersSlice';
+import usersReducer from './usersSlice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     users: usersReducer,
   },
 });
-store.dispatch(fetchUsers());
+// store.dispatch(fetchUsers());
 
 export default store;

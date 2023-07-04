@@ -1,46 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { selectUsers } from 'redux/selector';
 import css from './UserCard.module.css';
-import { useDispatch } from 'react-redux';
-import { fetchUsers } from 'redux/operations';
 import dialogbubbles from '../../images/dialogbubbles.png';
 import Logo from './Logo';
+import { useDispatch } from 'react-redux';
+import { updateUsers } from 'redux/operations';
 
-export const UserCard = ({ avatar, id, name, tweets }) => {
-  console.log(avatar);
-  const users = useSelector(selectUsers);
+export const UserCard = ({ avatar, id, name, followers, tweets, isFollow }) => {
   const dispatch = useDispatch();
-  const [following, setFollowing] = useState(false);
-  const [followers, setFollowers] = useState(() => {
-    const savedFollowers = localStorage.getItem('followers');
-    return savedFollowers ? parseInt(savedFollowers, 10) : 100500;
-  });
-
-  useEffect(() => {
-    localStorage.setItem('followers', followers.toString());
-  }, [followers]);
 
   const handleFollow = () => {
-    if (following) {
-      setFollowers(prevFollowers => prevFollowers - 1);
-    } else {
-      setFollowers(prevFollowers => prevFollowers + 1);
-    }
-    setFollowing(prevFollowing => !prevFollowing);
+    console.log(id, isFollow);
+    const newFollowers = isFollow ? followers - 1 : followers + 1;
+    dispatch(updateUsers({ id, isFollow: !isFollow, followers: newFollowers }));
   };
-
+  const formattedFollowers = followers.toLocaleString('en-US');
   return (
     <>
       <li className={css.userCard}>
         <Logo />
-        <img src={dialogbubbles} className={css.bubbles} alt="f" />
-        <img src={avatar} alt={name} />
-        <p> {tweets} tweets</p>
-        <p>{followers} followers</p>
-        <button className={css.followBtn} onClick={handleFollow} type="button">
-          {following ? 'Following' : 'Follow'}
-        </button>
+        <img src={dialogbubbles} className={css.bubbles} alt="speech-bubbles" />
+        <div className={css.round}>
+          <div className={css.line}></div>
+          <img className={css.avatar} src={avatar} alt={name} />
+        </div>
+
+        <p className={css.tweets}>{tweets} tweets</p>
+        <p className={css.followers}>{formattedFollowers} followers</p>
+
+        {isFollow ? (
+          <button
+            type="button"
+            className={css.buttonFollowing}
+            onClick={handleFollow}
+          >
+            Following
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={css.followBtn}
+            onClick={handleFollow}
+          >
+            Follow
+          </button>
+        )}
       </li>
     </>
   );
