@@ -7,8 +7,15 @@ export const fetchUsers = createAsyncThunk(
   'users/fetchUsers',
   async (_, thunkAPI) => {
     try {
+      const currentPage = thunkAPI.getState().users.currentPage;
       const response = await axios.get(
-        'https://64a2974bb45881cc0ae5663e.mockapi.io/users'
+        'https://64a2974bb45881cc0ae5663e.mockapi.io/users',
+        {
+          params: {
+            page: currentPage + 1,
+            limit: 10,
+          },
+        }
       );
       return response.data;
     } catch (err) {

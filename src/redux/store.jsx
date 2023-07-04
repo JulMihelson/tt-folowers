@@ -6,6 +6,5 @@ export const store = configureStore({
     users: usersReducer,
   },
 });
-// store.dispatch(fetchUsers());
 
 export default store;

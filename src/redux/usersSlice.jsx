@@ -8,6 +8,8 @@ const usersSlice = createSlice({
     isLoading: false,
     isFollow: false,
     error: null,
+    currentPage: 1,
+    limit: 10,
   },
   reducers: {},
   extraReducers: builder => {
@@ -17,8 +19,8 @@ const usersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.data = action.payload;
+        state.data = [...state.data, ...action.payload];
+        state.currentPage += 1;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;
@@ -33,4 +35,3 @@ const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export { fetchUsers };
