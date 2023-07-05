@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/tt-folowers/static/css/main.f3a329bb.css",
-    "main.js": "/tt-folowers/static/js/main.c3491cf0.js",
+    "main.js": "/tt-folowers/static/js/main.ef29917a.js",
     "static/media/dialogbubbles.png": "/tt-folowers/static/media/dialogbubbles.b186e544641a66e17d83.png",
     "index.html": "/tt-folowers/index.html",
     "main.f3a329bb.css.map": "/tt-folowers/static/css/main.f3a329bb.css.map",
-    "main.c3491cf0.js.map": "/tt-folowers/static/js/main.c3491cf0.js.map"
+    "main.ef29917a.js.map": "/tt-folowers/static/js/main.ef29917a.js.map"
   },
   "entrypoints": [
     "static/css/main.f3a329bb.css",
-    "static/js/main.c3491cf0.js"
+    "static/js/main.ef29917a.js"
   ]
 }
