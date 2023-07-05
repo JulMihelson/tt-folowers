@@ -8,15 +8,12 @@ export const fetchUsers = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const currentPage = thunkAPI.getState().users.currentPage;
-      const response = await axios.get(
-        'https://64a2974bb45881cc0ae5663e.mockapi.io/users',
-        {
-          params: {
-            page: currentPage + 1,
-            limit: 10,
-          },
-        }
-      );
+      const response = await axios.get('/users', {
+        params: {
+          page: currentPage,
+          limit: 10,
+        },
+      });
       return response.data;
     } catch (err) {
       console.log(err.message);
@@ -28,10 +25,26 @@ export const fetchUsers = createAsyncThunk(
 export const updateUsers = createAsyncThunk(
   'users/updateUsers',
   async ({ id, isFollow, followers }) => {
-    const response = await axios.put(
-      `https://64a2974bb45881cc0ae5663e.mockapi.io/users/${id}`,
-      { isFollow, followers }
-    );
+    const response = await axios.put(`/users/${id}`, { isFollow, followers });
     return response.data;
+  }
+);
+
+export const fetchMoreUsers = createAsyncThunk(
+  'users/fetchMoreUsers',
+  async (_, thunkAPI) => {
+    try {
+      const currentPage = thunkAPI.getState().users.currentPage;
+      const response = await axios.get('/users', {
+        params: {
+          page: currentPage + 1,
+          limit: 10,
+        },
+      });
+      return response.data;
+    } catch (err) {
+      console.log(err.message);
+      return thunkAPI.rejectWithValue(err);
+    }
   }
 );

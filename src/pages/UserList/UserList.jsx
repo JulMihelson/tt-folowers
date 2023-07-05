@@ -1,36 +1,36 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUsers } from 'redux/operations';
+import { fetchMoreUsers } from 'redux/operations';
 import { UserCard } from 'pages/UserCard/UserCard';
 import css from './UserList.module.css';
-import { selectUsers, selectIsLoading, selectError } from 'redux/selector';
+import { selectUsers, selectError } from 'redux/selector';
 
 const UserList = () => {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
-
   const handleLoadMore = () => {
-    dispatch(fetchUsers());
+    dispatch(fetchMoreUsers());
   };
 
-  return isLoading ? (
+  return (
     <div className={css.list}>
       <h1>User List</h1>
-      <ul>
-        {users.map(user => (
-          <UserCard key={user.id} {...user} />
-        ))}
-      </ul>
-      <button onClick={handleLoadMore}>Load More</button>
+      {error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <>
+          <ul>
+            {users.map((user, index) => (
+              <UserCard key={index} {...user} />
+            ))}
+          </ul>
+          <button onClick={handleLoadMore}>Load More</button>
+        </>
+      )}
     </div>
-  ) : (
-    <p>Error: {error}</p>
   );
 };
 

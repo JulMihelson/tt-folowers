@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers, updateUsers } from './operations';
+import { fetchMoreUsers, fetchUsers, updateUsers } from './operations';
 
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
     data: [],
     isLoading: false,
-    isFollow: false,
     error: null,
     currentPage: 1,
     limit: 10,
@@ -20,7 +19,7 @@ const usersSlice = createSlice({
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.data = [...state.data, ...action.payload];
-        state.currentPage += 1;
+        state.isLoading = false;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;
@@ -30,6 +29,19 @@ const usersSlice = createSlice({
         state.data = state.data.map(el =>
           el.id === payload.id ? payload : el
         );
+      })
+      .addCase(fetchMoreUsers.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchMoreUsers.fulfilled, (state, action) => {
+        state.data = [...state.data, ...action.payload];
+        state.currentPage += 1;
+        state.isLoading = false;
+      })
+      .addCase(fetchMoreUsers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
       });
   },
 });

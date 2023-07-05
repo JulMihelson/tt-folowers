@@ -1,14 +1,12 @@
-import css from './UserCard.module.css';
 import dialogbubbles from '../../images/dialogbubbles.png';
 import Logo from './Logo';
 import { useDispatch } from 'react-redux';
 import { updateUsers } from 'redux/operations';
-
+import css from './UserCard.module.css';
 export const UserCard = ({ avatar, id, name, followers, tweets, isFollow }) => {
   const dispatch = useDispatch();
 
   const handleFollow = () => {
-    console.log(id, isFollow);
     const newFollowers = isFollow ? followers - 1 : followers + 1;
     dispatch(updateUsers({ id, isFollow: !isFollow, followers: newFollowers }));
   };
