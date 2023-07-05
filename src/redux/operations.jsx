@@ -11,7 +11,7 @@ export const fetchUsers = createAsyncThunk(
       const response = await axios.get('/users', {
         params: {
           page: currentPage,
-          limit: 10,
+          limit: 9,
         },
       });
       return response.data;
@@ -38,7 +38,7 @@ export const fetchMoreUsers = createAsyncThunk(
       const response = await axios.get('/users', {
         params: {
           page: currentPage + 1,
-          limit: 10,
+          limit: 9,
         },
       });
       return response.data;

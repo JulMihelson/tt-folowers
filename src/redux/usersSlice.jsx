@@ -8,7 +8,7 @@ const usersSlice = createSlice({
     isLoading: false,
     error: null,
     currentPage: 1,
-    limit: 10,
+    limit: 9,
   },
   reducers: {},
   extraReducers: builder => {

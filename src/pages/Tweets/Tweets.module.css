@@ -1,0 +1,18 @@
+ul {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+p {
+  margin: 0;
+}
+.loadMore {
+  margin: 0 auto;
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #5736a3;
+}
