@@ -15,10 +15,16 @@ export const UserCard = ({ avatar, id, name, followers, tweets, isFollow }) => {
     <>
       <li className={css.userCard}>
         <Logo />
-        <img src={dialogbubbles} className={css.bubbles} alt="speech-bubbles" />
+        <img
+          src={dialogbubbles}
+          className={css.bubbles}
+          width="308"
+          height="168"
+          alt="speech-bubbles"
+        />
         <div className={css.round}>
           <div className={css.line}></div>
-          <img className={css.avatar} src={avatar} alt={name} />
+          <img className={css.avatar} src={avatar} alt={name} width="76" />
         </div>
 
         <p className={css.tweets}>{tweets} tweets</p>

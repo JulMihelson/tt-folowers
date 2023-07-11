@@ -36,6 +36,7 @@
   gap: 16px;
 }
 .followBtn {
+  text-decoration: none;
   font-family: inherit;
   padding: 14px 56px;
   display: flex;

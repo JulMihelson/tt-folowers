@@ -21,6 +21,7 @@ const Tweets = () => {
 
   const StyledLink = styled(NavLink)`
     text-transform: uppercase;
+    text-decoration: none;
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -34,7 +35,9 @@ const Tweets = () => {
   return (
     <>
       <StyledLink to="/">
-        <div>back</div>
+        <button type="button" className={css.loadMore}>
+          back
+        </button>
       </StyledLink>
 
       <div className={css.list}>
@@ -48,7 +51,7 @@ const Tweets = () => {
               ))}
             </ul>
             <button className={css.loadMore} onClick={handleLoadMore}>
-              Load More
+              more
             </button>
           </>
         )}
